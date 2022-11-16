@@ -24,10 +24,9 @@ class Board
 
   #Part 2
   def attack(pos)
-    current_pos = self[pos]
-    if current_pos == :S
+    if self[pos] == :S
         self[pos] = :H
-        print "you sunk my battleship!"
+        p "you sunk my battleship!"
         true
     else
         self[pos] = :X
@@ -66,14 +65,7 @@ class Board
   end
 
   def self.print_grid(grid)
-    grid.each do |row|
-        rowprint = row[0].to_s
-
-        (1...row.length).each do |i|
-            rowprint = " " + row[i].to_s
-        end
-        puts rowprint
-    end
+    grid.each { |row| puts row.join(" ") }
   end
 
   def cheat
